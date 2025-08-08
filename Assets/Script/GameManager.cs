@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
         Generate(5, 5);
 
-        TilemapGenerator.Instance.DrawMap();
+        DrawMap();
     }
 
     void MapLegnth()
@@ -135,6 +135,33 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    public void DrawMap()
+    {
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                Vector3Int floorTilePos = new Vector3Int(x, 0, y);
+                if (map[x, y] == 1)
+                {
+                    Instantiate(TilemapGenerator.Instance.floorTile, floorTilePos, TilemapGenerator.Instance.floorTile.transform.rotation);
+                    GameObject obj =  Instantiate(TilemapGenerator.Instance.wallTile, floorTilePos + new Vector3Int(0, 1, 0), TilemapGenerator.Instance.floorTile.transform.rotation);
+                    Building building = obj.GetComponent<Building>();
+                    building.CreatePos = new Vector2Int(floorTilePos.x, floorTilePos.z);
+
+                    Debug.Log(x + "," + y);
+                    Debug.Log(building.CreatePos);
+                }
+                else
+                {
+                    Instantiate(TilemapGenerator.Instance.floorTile, floorTilePos, TilemapGenerator.Instance.floorTile.transform.rotation);
+                }
+            }
+        }
+    }
+
 
     void SetMapLocation()
     {
