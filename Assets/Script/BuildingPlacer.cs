@@ -119,7 +119,6 @@ public class BuildingPlacer : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, 100f, LayerMask.GetMask("Build")))
             {
-                Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider != null)
                 {
                     Building building = hit.collider.gameObject.GetComponent<Building>();

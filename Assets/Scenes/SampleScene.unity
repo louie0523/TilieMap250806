@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Map: {fileID: 1410687071}
   floorTile: {fileID: 5046871279890737178, guid: 1331ed98e63d2bc408d9cd39095fe7e8, type: 3}
-  wallTile: {fileID: 8749929742997183556, guid: e3a1a7947df06904ca92b52fb2c7a0ed, type: 3}
+  wallTile: {fileID: 4718375729544798823, guid: c34176e844e6a6d4f9a2c41c81736f0b, type: 3}
 --- !u!1 &590636358
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   width: 10
   height: 10
   isBuilding: 0
+  directions: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 10, z: 2}
+  m_LocalPosition: {x: 5, y: 10, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
