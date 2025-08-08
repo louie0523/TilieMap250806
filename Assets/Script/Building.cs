@@ -8,6 +8,7 @@ public class Building : MonoBehaviour
     /// 건물의 크기
     /// </summary>
     public Vector2Int size = new Vector2Int(2, 2);
+    public Vector2Int CreatePos;
 
     private void Start()
     {

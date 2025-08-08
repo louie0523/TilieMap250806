@@ -117,19 +117,19 @@ public class BuildingPlacer : MonoBehaviour
         if (!GameManager.Instance.isBuilding)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, 100f, LayerMask.GetMask("Floor")))
+            if (Physics.Raycast(ray, out RaycastHit hit, 100f, LayerMask.GetMask("Build")))
             {
                 Debug.Log(hit.collider.gameObject.name);
-                if(hit.collider != null)
+                if (hit.collider != null)
                 {
-                    BuildingPreview buildingPreview = hit.collider.GetComponent<BuildingPreview>(); 
+                    Building building = hit.collider.gameObject.GetComponent<Building>();
+                    
 
-                    //buildingPreview.SetColor(Color.yellow);
-                    
-                    
                     if (Input.GetMouseButtonDown(0))
                     {
-                        Destroy(hit.collider.gameObject);
+                            GameManager.Instance.DestroyArea(building.CreatePos, building.size);
+                            Destroy(hit.collider.gameObject);
+                        
                     }
                 }
 
@@ -163,6 +163,8 @@ public class BuildingPlacer : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(gridPos.x + builidngData.size.x - BuildingSize, 1, gridPos.y + builidngData.size.y - BuildingSize);
         GameObject creatBuilding = Instantiate(buildingPrefab, spawnPos, Quaternion.identity);
+        Building building = creatBuilding.GetComponent<Building>();
+        building.CreatePos = gridPos;
         creatBuilding.transform.name = "CreateBuilding";
         creatBuilding.GetComponent<Building>().SetBuildingSize(builidngData.size.x);
         GameManager.Instance.OccupyArea(gridPos, builidngData.size);

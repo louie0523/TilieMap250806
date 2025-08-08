@@ -51,6 +51,19 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    public void DestroyArea(Vector2Int start, Vector2Int size)
+    {
+        for (int x = 0; x < size.x; x++)
+        {
+            for (int y = 0; y < size.y; y++)
+            {
+
+                occupied[start.x + x, start.y + y] = false;
+
+            }
+        }
+    }
+
     public void OccupyArea(Vector2Int start, Vector2Int size)
     {
         for (int x = 0; x < size.x; x++)
