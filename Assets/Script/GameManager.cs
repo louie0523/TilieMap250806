@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             for(int j = 0; j < height; j++)
             {
                 map[i, j] = 1;
+                occupied[i, j] = true;
             }
         }
     }
@@ -121,10 +122,11 @@ public class GameManager : MonoBehaviour
                 if (!(CountSquareNeighbours(changeX, changeZ) >= 2 || map[changeX, changeZ] == 0))
                 {
                     map[changeX, changeZ] = 0;
+                    occupied[changeX, changeZ] = false;
                     mapDatas.Push(new Vector2Int(changeX, changeZ));
                     moved = true;
                     break;
-                }
+                } 
             }
             if (!moved)
             {
