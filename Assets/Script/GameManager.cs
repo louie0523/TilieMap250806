@@ -36,7 +36,13 @@ public class GameManager : MonoBehaviour
 
         SetMapLocation();
 
-        Generate(5, 5);
+        int w = (int)(width / 2);
+        int h = (int)(height / 2);
+
+        Camera.main.transform.position = new Vector3(w, (int)((width + height) / 2), h);
+
+        //Generate(w, h);
+
 
         DrawMap();
     }

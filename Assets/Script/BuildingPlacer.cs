@@ -106,7 +106,7 @@ public class BuildingPlacer : MonoBehaviour
                 bool canPlace = GameManager.Instance.IsAreaFree(gridPos, builidngData.size);
                 previewScript.SetColor(canPlace ? Color.green : Color.red);
 
-                if(Input.GetMouseButtonDown(0) && canPlace)
+                if(Input.GetMouseButton(0) && canPlace)
                 {
                     PlaceBuilding(gridPos);
                 }
@@ -124,7 +124,7 @@ public class BuildingPlacer : MonoBehaviour
                     Building building = hit.collider.gameObject.GetComponent<Building>();
                     
 
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButton(0))
                     {
                             GameManager.Instance.DestroyArea(building.CreatePos, building.size);
                             Destroy(hit.collider.gameObject);
